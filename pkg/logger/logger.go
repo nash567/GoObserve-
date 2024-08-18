@@ -13,6 +13,7 @@ import (
 var (
 	mux        = &sync.Mutex{}
 	defaultLog *SlogLogger
+	levelInfo  = "INFO"
 )
 
 func defaultLogger() *SlogLogger {
@@ -21,7 +22,7 @@ func defaultLogger() *SlogLogger {
 
 	if defaultLog == nil {
 		defaultLog = NewSlogLogger(&config.Config{
-			Level:  "INFO",
+			Level:  levelInfo,
 			Output: os.Stdout,
 		})
 	}
